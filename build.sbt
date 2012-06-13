@@ -8,17 +8,19 @@ scalaVersion := "2.9.1"
 organization := "com.damianhelme"
 
 mainClass := Some("com.damianhelme.App")
- 
+
 libraryDependencies ++= {
   	Seq(
-		    "org.specs2" %% "specs2" % "1.8" % "test",
+            "com.github.scala-incubator.io" %% "scala-io-core" % "0.4.0",
+            "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.0",
+            "org.specs2" %% "specs2" % "1.8" % "test",
     		"org.scalatest" %% "scalatest" % "1.7.1" % "test",
     		"org.scala-lang" % "scala-compiler" % "2.9.1"
   	)
 }
 
 scalacOptions ++= Seq("-unchecked", "-deprecation")
-	
+
 // seq(ScctPlugin.scctSettings: _*)
 
 // seq(WebPlugin.webSettings: _*)
@@ -30,13 +32,13 @@ scalacOptions ++= Seq("-unchecked", "-deprecation")
 
 
 
-	
+
 	// https://groups.google.com/forum/?hl=en#!activity/liftweb/Um5ghzYMDUoJ/liftweb/DDTzzxRbCNU/qEo0lIbTv4kJ
 	// needed for javaMail 1.4.4
 	resolvers += "Java.net Maven2 Repo" at "http://download.java.net/maven/2/"
-		
+
 	// jettyConfFiles <<= jettyConfFiles(_.copy(env = Some(file(".") / "src" / "test" / "resources" / "jetty.xml" asFile)))
-	
+
 		// needed to stop a clash between slf4j-log4j12 and logback-classic
 	// ivyXML := <dependencies> 
     				// <dependency org="eu.medsea.mimeutil" name="mime-util" rev="2.1.3" > 
