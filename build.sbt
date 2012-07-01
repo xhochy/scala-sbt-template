@@ -21,6 +21,8 @@ libraryDependencies ++= {
 
 scalacOptions ++= Seq("-unchecked", "-deprecation")
 
+resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
+
 // seq(ScctPlugin.scctSettings: _*)
 
 // seq(WebPlugin.webSettings: _*)
