@@ -1,3 +1,22 @@
+import AssemblyKeys._ // put this at the top of the file
+import sbtassembly.Plugin._
+
+assemblySettings
+
+mergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) =>
+    {
+        case "META-INF/MANIFEST.MF" => MergeStrategy.discard
+        case "META-INF/README.txt" => MergeStrategy.discard
+        case "META-INF/CHANGES.txt" => MergeStrategy.discard
+        case "META-INF/NOTICE" => MergeStrategy.discard
+        case "META-INF/NOTICE.TXT" => MergeStrategy.discard
+        case "META-INF/LICENSE" => MergeStrategy.concat
+        case "META-INF/LICENSE.txt" => MergeStrategy.concat
+        case "META-INF/LICENSES.txt" => MergeStrategy.concat
+        case x => old(x)
+    }
+}
+
 // set the name of the project
 name := "Scala SBT Template"
 
