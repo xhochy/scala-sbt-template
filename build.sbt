@@ -5,9 +5,9 @@ version := "0.1.0"
 
 scalaVersion := "2.9.1"
 
-organization := "com.damianhelme"
+organization := "com.xhochy"
 
-mainClass := Some("com.damianhelme.App")
+mainClass := Some("com.xhochy.App")
 
 libraryDependencies ++= {
   	Seq(
