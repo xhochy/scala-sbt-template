@@ -1,6 +1,16 @@
 import AssemblyKeys._ // put this at the top of the file
+import com.github.philcali.DoccoPlugin.docco
 import sbtassembly.Plugin._
 
+
+// Docco plugin settings
+seq(doccoSettings: _*)
+
+docco.title := "Songride Analyzer"
+
+docco.skipEmpty := false
+
+// Assembly plugin settings
 assemblySettings
 
 mergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) =>
@@ -34,7 +44,9 @@ libraryDependencies ++= {
             "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.0",
             "org.specs2" %% "specs2" % "1.8" % "test",
     		"org.scalatest" %% "scalatest" % "1.7.1" % "test",
-    		"org.scala-lang" % "scala-compiler" % "2.9.1"
+    		"org.scala-lang" % "scala-compiler" % "2.9.1",
+            "org.slf4j" % "slf4j-simple" % "1.6.4", 
+            "ru.circumflex" % "circumflex-docco" % "2.1"
   	)
 }
 
