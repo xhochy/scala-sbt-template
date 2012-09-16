@@ -2,6 +2,8 @@ import AssemblyKeys._ // put this at the top of the file
 import com.github.philcali.DoccoPlugin.docco
 import sbtassembly.Plugin._
 
+// Dependency graphs
+net.virtualvoid.sbt.graph.Plugin.graphSettings
 
 // Docco plugin settings
 seq(doccoSettings: _*)
@@ -40,12 +42,12 @@ mainClass := Some("com.xhochy.App")
 
 libraryDependencies ++= {
   	Seq(
-            "com.github.scala-incubator.io" %% "scala-io-core" % "0.4.0",
-            "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.0",
+            "com.github.scala-incubator.io" %% "scala-io-core" % "0.4.1",
+            "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.1",
             "org.specs2" %% "specs2" % "1.8" % "test",
     		"org.scalatest" %% "scalatest" % "1.7.1" % "test",
     		"org.scala-lang" % "scala-compiler" % "2.9.1",
-            "org.slf4j" % "slf4j-simple" % "1.6.4", 
+            "org.slf4j" % "slf4j-simple" % "1.6.4",
             "ru.circumflex" % "circumflex-docco" % "2.1"
   	)
 }
@@ -53,6 +55,11 @@ libraryDependencies ++= {
 scalacOptions ++= Seq("-unchecked", "-deprecation")
 
 resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
+
+// https://groups.google.com/forum/?hl=en#!activity/liftweb/Um5ghzYMDUoJ/liftweb/DDTzzxRbCNU/qEo0lIbTv4kJ
+// needed for javaMail 1.4.4
+resolvers += "Java.net Maven2 Repo" at "http://download.java.net/maven/2/"
+
 
 // seq(ScctPlugin.scctSettings: _*)
 
@@ -63,22 +70,13 @@ resolvers += "Typesafe Repository" at "http://repo.typesafe.com/typesafe/release
 // jettyScanDirs := Nil
 // scanDirectories in Compile := Nil
 
+// needed to stop a clash between slf4j-log4j12 and logback-classic
+// ivyXML := <dependencies>
+// <dependency org="eu.medsea.mimeutil" name="mime-util" rev="2.1.3" >
+// <exclude module="slf4j-log4j12" />
+// </dependency>
+// </dependencies>
 
-
-
-	// https://groups.google.com/forum/?hl=en#!activity/liftweb/Um5ghzYMDUoJ/liftweb/DDTzzxRbCNU/qEo0lIbTv4kJ
-	// needed for javaMail 1.4.4
-	resolvers += "Java.net Maven2 Repo" at "http://download.java.net/maven/2/"
-
-	// jettyConfFiles <<= jettyConfFiles(_.copy(env = Some(file(".") / "src" / "test" / "resources" / "jetty.xml" asFile)))
-
-		// needed to stop a clash between slf4j-log4j12 and logback-classic
-	// ivyXML := <dependencies> 
-    				// <dependency org="eu.medsea.mimeutil" name="mime-util" rev="2.1.3" > 
-      					// <exclude module="slf4j-log4j12" /> 
-    				// </dependency> 
-  				// </dependencies> 
-  
 // add compile dependencies on some dispatch modules
 // libraryDependencies ++= Seq(
 	// "net.databinder" %% "dispatch-meetup" % "0.7.8",
