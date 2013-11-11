@@ -34,7 +34,7 @@ name := "Scala SBT Template"
 
 version := "0.1.0"
 
-scalaVersion := "2.9.1"
+scalaVersion := "2.10.3"
 
 organization := "com.xhochy"
 
@@ -44,9 +44,9 @@ libraryDependencies ++= {
   	Seq(
             "com.github.scala-incubator.io" %% "scala-io-core" % "0.4.1",
             "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.1",
-            "org.specs2" %% "specs2" % "1.8" % "test",
-    		"org.scalatest" %% "scalatest" % "1.7.1" % "test",
-    		"org.scala-lang" % "scala-compiler" % "2.9.1",
+            "org.specs2" %% "specs2" % "2.2.2" % "test",
+    		"org.scalatest" %% "scalatest" % "1.9.2" % "test",
+    		"org.scala-lang" % "scala-compiler" % "2.10.3",
             "org.slf4j" % "slf4j-simple" % "1.6.4"
 //            "ru.circumflex" % "circumflex-docco" % "2.1"
   	)
