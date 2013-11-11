@@ -42,8 +42,8 @@ mainClass := Some("com.xhochy.App")
 
 libraryDependencies ++= {
   	Seq(
-            "com.github.scala-incubator.io" %% "scala-io-core" % "0.4.1",
-            "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.1",
+            "com.github.scala-incubator.io" %% "scala-io-core" % "0.4.2",
+            "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.2",
             "org.specs2" %% "specs2" % "2.2.2" % "test",
     		"org.scalatest" %% "scalatest" % "1.9.2" % "test",
     		"org.scala-lang" % "scala-compiler" % "2.10.3",
